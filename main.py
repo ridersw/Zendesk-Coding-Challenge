@@ -29,6 +29,7 @@ class zendeskTicketTab:
         # Do the HTTP get request
         try:
             response = requests.get(url, headers=headers)
+            print(f"Zendesk API Connected Successfully. Status: {response.status_code}")
         except:
             print("Unable to fetch the data. Please check the API and Credential details")
 
@@ -80,11 +81,12 @@ if __name__ == "__main__":
     
 
     showNextTickets = "y"
-    print("===================================================")
-    print("      Welcome to Zendesk Ticket Viewer")
-    print("===================================================")
+    
 
     while True:
+        print("===================================================")
+        print("      Welcome to Zendesk Ticket Viewer")
+        print("===================================================")
         option = input("Select the Option: \n 1) Display All Tickets assigned to me \n 2) Display Ticket (ID Required) \n 3) Refresh Tickets \n 4) Exit \n Answer: ")
 
         if option == '1':
@@ -129,7 +131,10 @@ if __name__ == "__main__":
             try:
                 response = requests.get(url, headers=headers)
                 data = (response.json())
-                print(f"Ticket ID: {data['ticket']['id']} \nCreated at: {data['ticket']['created_at']} \nSubject: {data['ticket']['subject']} \n,Description: {data['ticket']['description']} \nPriority: {data['ticket']['priority']}\nStatus: {data['ticket']['status']} \nAssignee ID: {data['ticket']['assignee_id']}")
+                print("====================================")
+                print("      Requested Ticket Details")
+                print("====================================")
+                print(f"Ticket ID: {data['ticket']['id']} \n\nCreated at: {data['ticket']['created_at']} \n\nSubject: {data['ticket']['subject']} \n\nDescription: {data['ticket']['description']} \n\nPriority: {data['ticket']['priority']}\n\nStatus: {data['ticket']['status']} \n\nAssignee ID: {data['ticket']['assignee_id']}\n\n")
 
             except:
                 print("Unable to fetch the data. Please check the Ticket ID")
