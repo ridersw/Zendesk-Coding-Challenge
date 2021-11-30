@@ -7,7 +7,7 @@
 **Steps to Run the program**
 
 1. Please Install the packages in requirements.txt and Python version.
-2. Create credentials.py in root folder and insert email and token for an account to login and run the program to fetch and display the tickets successfully.
+2. Create credentials.py in root folder and insert email and token for an account to login and run the program to fetch and display the tickets successfully OR inser the credentials on the terminal on runtime.
 3. Run the main.py by command "python3 main.py"
 
 # On Branch main- CLI Based UI
