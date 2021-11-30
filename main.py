@@ -9,7 +9,12 @@ except:
 try: 
     from credentials import email, token
 except:
-    print("Credentials fetching failed. Please create/ copy the crendentials.py file. Include Account's email and token to access the tickets.")
+    answer = input("Do you wish to insert required Creds on Terminal? (y/ N)")
+    if answer == 'y' or answer == 'Y':
+        email = input("Please Enter the Email: ")
+        token = input("Please Enter the Secured Token: (Found at URL-https://zccdatamaster.zendesk.com/agent/admin/api/settings)")
+    else:
+        print("Please create or copy the crendentials.py file. Include Account's email and token to access the tickets.")
 
 
 class zendeskTicketTab:
@@ -79,6 +84,8 @@ class zendeskTicketTab:
 
 if __name__ == "__main__":
     
+    if not email or not token:
+        exit()
 
     showNextTickets = "y"
     
